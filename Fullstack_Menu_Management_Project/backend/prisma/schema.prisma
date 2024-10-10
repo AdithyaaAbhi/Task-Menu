@@ -1,0 +1,8 @@
+
+model Menu {
+  id       Int      @id @default(autoincrement())
+  name     String
+  parentId Int?
+  children Menu[] @relation("MenuToParent")
+  parent   Menu? @relation("MenuToParent", fields: [parentId], references: [id])
+}
